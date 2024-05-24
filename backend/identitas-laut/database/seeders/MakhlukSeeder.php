@@ -28,8 +28,8 @@ class MakhlukSeeder extends Seeder
                 'species' => 'O. orca',
             ],
             [
-                'name_ID' => 'Paus Pembunuh',
-                'name_EN' => 'Killer Whale',
+                'name_ID' => 'Lumba-Lumba Hidung Botol',
+                'name_EN' => 'Bottlenose Dolphin',
                 'domain' => 'Eukaryota',
                 'kingdom' => 'Animalia',
                 'phylum' => 'Chordata',
@@ -37,8 +37,8 @@ class MakhlukSeeder extends Seeder
                 'order' => 'Artiodactyla',
                 'infraorder' => 'Cetacea',
                 'family' => 'Delphinidae',
-                'genus' => 'Orcinus',
-                'species' => 'O. orca',
+                'genus' => 'Tursiops',
+                'species' => 'Gervais',
             ],
         ]);
     }
