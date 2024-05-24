@@ -1,7 +1,9 @@
 <?php
 
+use App\Models\Makhluk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MakhlukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+// Route::resources([
+//     '/makhluks', MakhlukController::class,
+// ]);
+
+Route::get('/makhluks', [MakhlukController::class, 'index']);
