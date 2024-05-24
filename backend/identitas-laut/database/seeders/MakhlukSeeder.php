@@ -13,20 +13,33 @@ class MakhlukSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('makhluks')->insert(
+        DB::table('makhluks')->insert([
             [
-            'name_ID' => "Paus Pembunuh",
-            'name_EN' => "Killer Whale",
-            'domain' => "Eukaryota",
-            'kingdom' => "Animalia",
-            'phylum' => "Chordata",
-            'class' => "Mammalia",
-            'order' => "Artiodactyla",
-            'infraorder' => "Cetacea",
-            'family' => "Delphinidae",
-            'genus' => "Orcinus",
-            'species' => "O. orca",
-            ]
-        );
+                'name_ID' => 'Paus Pembunuh',
+                'name_EN' => 'Killer Whale',
+                'domain' => 'Eukaryota',
+                'kingdom' => 'Animalia',
+                'phylum' => 'Chordata',
+                'class' => 'Mammalia',
+                'order' => 'Artiodactyla',
+                'infraorder' => 'Cetacea',
+                'family' => 'Delphinidae',
+                'genus' => 'Orcinus',
+                'species' => 'O. orca',
+            ],
+            [
+                'name_ID' => 'Paus Pembunuh',
+                'name_EN' => 'Killer Whale',
+                'domain' => 'Eukaryota',
+                'kingdom' => 'Animalia',
+                'phylum' => 'Chordata',
+                'class' => 'Mammalia',
+                'order' => 'Artiodactyla',
+                'infraorder' => 'Cetacea',
+                'family' => 'Delphinidae',
+                'genus' => 'Orcinus',
+                'species' => 'O. orca',
+            ],
+        ]);
     }
 }
