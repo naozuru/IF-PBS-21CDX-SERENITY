@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Makhluk;
 use App\Http\Requests\StoreMakhlukRequest;
 use App\Http\Requests\UpdateMakhlukRequest;
+use Illuminate\Support\Facades\DB;
+
 
 class MakhlukController extends Controller
 {
@@ -18,12 +20,25 @@ class MakhlukController extends Controller
         return $showAllData;
     }
 
+    public function showSpesificData()
+    {
+        $makhluk = DB::table('makhluks')
+            ->select('name_ID', 'name_EN')
+            ->get();
+
+        return $makhluk;
+    }
+
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        $makhluk = DB::table('makhluks')
+        ->select('name_ID')
+        ->get();
+
+        return $makhluk;
     }
 
     /**
@@ -58,7 +73,11 @@ class MakhlukController extends Controller
      */
     public function update(UpdateMakhlukRequest $request, Makhluk $makhluk)
     {
-        //
+        // $updateData = DB::table('makhluks')
+        //                 ->where('id', $makhluk->id)
+        //                 ->update(['name_ID' => 'Paus']);
+
+        // return $updateData;
     }
 
     /**
