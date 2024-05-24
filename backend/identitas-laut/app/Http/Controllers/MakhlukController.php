@@ -13,9 +13,9 @@ class MakhlukController extends Controller
      */
     public function index()
     {
-        $showAll = Makhluk::all();
+        $showAllData = Makhluk::all();
 
-        return $showAll;
+        return $showAllData;
     }
 
     /**
@@ -39,7 +39,9 @@ class MakhlukController extends Controller
      */
     public function show(Makhluk $makhluk)
     {
-        
+        $showOneData = Makhluk::find($makhluk);
+
+        return $showOneData;
         
     }
 
@@ -64,6 +66,8 @@ class MakhlukController extends Controller
      */
     public function destroy(Makhluk $makhluk)
     {
-        //
+        $deleteData = Makhluk::destroy($makhluk->id);
+
+        return $deleteData;
     }
 }

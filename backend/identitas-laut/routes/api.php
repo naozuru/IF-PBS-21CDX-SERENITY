@@ -20,8 +20,10 @@ use App\Http\Controllers\MakhlukController;
 //     return $request->user();
 // });
 
-// Route::resources([
-//     '/makhluks', MakhlukController::class,
-// ]);
+Route::apiResources([
+    'makhluks' => MakhlukController::class,
+]);
 
-Route::get('/makhluks', [MakhlukController::class, 'index']);
+// Route::get('/makhluks', [MakhlukController::class, 'index']);
+// Route::get('/makhluks/{id}', [MakhlukController::class, 'show']);
+// Route::delete('/makhluks/{id}', [MakhlukController::class, 'destroy']);
