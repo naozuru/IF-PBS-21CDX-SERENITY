@@ -6,6 +6,7 @@ use App\Models\Makhluk;
 use App\Http\Requests\StoreMakhlukRequest;
 use App\Http\Requests\UpdateMakhlukRequest;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 
 class MakhlukController extends Controller
@@ -34,11 +35,7 @@ class MakhlukController extends Controller
      */
     public function create()
     {
-        $makhluk = DB::table('makhluks')
-        ->select('name_ID')
-        ->get();
 
-        return $makhluk;
     }
 
     /**
@@ -46,7 +43,18 @@ class MakhlukController extends Controller
      */
     public function store(StoreMakhlukRequest $request)
     {
-        //
+        // cek nama_ID apakah sudah ada
+        $existingMakhluk = Makhluk::where('name_ID', $request->name_ID)->first();
+        if ($existingMakhluk) {
+            // name_ID already exists
+            // handle the error or return a response indicating the duplication
+            return response()->json(['error' => 'name_ID already exists'], 422);
+        } else {
+            // name_ID does not exist
+            // proceed with storing the new resource
+            $makhluk = Makhluk::create($request->all());
+            return $makhluk;
+        }
     }
 
     /**

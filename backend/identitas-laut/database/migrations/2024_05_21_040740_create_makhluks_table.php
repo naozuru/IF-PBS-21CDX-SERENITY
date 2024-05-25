@@ -13,17 +13,17 @@ return new class extends Migration
     {
         Schema::create('makhluks', function (Blueprint $table) {
             $table->id();
-            $table->string('name_ID');
-            $table->string('name_EN');
-            $table->string('domain');
-            $table->string('kingdom');
-            $table->string('phylum');
-            $table->string('class');
-            $table->string('order');
-            $table->string('infraorder');
-            $table->string('family');
-            $table->string('genus');
-            $table->string('species');
+            $table->string('name_ID')->unique();
+            $table->string('name_EN')->nullable();
+            $table->string('domain')->nullable();
+            $table->string('kingdom')->nullable();
+            $table->string('phylum')->nullable();
+            $table->string('class')->nullable();
+            $table->string('order')->nullable();
+            $table->string('infraorder')->nullable();
+            $table->string('family')->nullable();
+            $table->string('genus')->nullable();
+            $table->string('species')->nullable();
             $table->timestamps();
         });
     }
