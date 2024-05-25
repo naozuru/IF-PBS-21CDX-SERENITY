@@ -28,3 +28,4 @@ Route::get('spesific_data_makhluks', [MakhlukController::class, 'showSpesificDat
 // Route::get('/makhluks/{id}', [MakhlukController::class, 'show']);
 // Route::delete('/makhluks/{id}', [MakhlukController::class, 'destroy']);
 // Route::post('/makhluks/store', [MakhlukController::class, 'store']);
+Route::put('/makhluks/{$name_ID}', [MakhlukController::class, 'update']);
