@@ -1,19 +1,40 @@
 import React from "react";
 import { Icon, InlineIcon } from "@iconify/react";
+import Image from "next/image";
+import Link from "next/link";
 
-export default function adminCreature() {
+export default function adminCreatureTest() {
   return (
     <div>
       <div>
         <header className="bg-emerald-800 p-4 text-white">
           <nav className="">
+            <div>
+              <Link href="../">
+                <Image
+                  src="/logo.png"
+                  alt="logo"
+                  width={50}
+                  height={50}
+                  className="rounded-full"
+                />
+              </Link>
+            </div>
             <div className="text-center space-x-10">
-              <a className="text-md font-semibold">Home</a>
-              <a className="text-md font-semibold">Creature</a>
-              <a className="text-md font-semibold text-end">Plant</a>
+              <Link className="text-md font-semibold" href="">
+                Home
+              </Link>
+              <Link className="text-md font-semibold" href="./">
+                Creature
+              </Link>
+              <Link className="text-md font-semibold text-end" href="../plant">
+                Plant
+              </Link>
             </div>
             <div className="text-end">
-              <a className="text-md font-semibold">Login</a>
+              <Link className="text-md font-semibold" href="../login">
+                Login
+              </Link>
             </div>
           </nav>
         </header>
