@@ -7,12 +7,12 @@ export default function adminCreature() {
   return (
     <div>
       <div>
-        <header className="bg-emerald-800 p-4 text-white">
-          <nav className="">
+        <header className="bg-emerald-800 py-1 px-10 text-white">
+          <nav className="flex items-center justify-between">
             <div>
               <Link href="../">
                 <Image
-                  src="/logo.png"
+                  src=""
                   alt="logo"
                   width={50}
                   height={50}
@@ -20,18 +20,18 @@ export default function adminCreature() {
                 />
               </Link>
             </div>
-            <div className="text-center space-x-10">
-              <Link className="text-md font-semibold" href="">
+            <div className="flex-1 flex justify-center space-x-10">
+              <Link className="text-md font-semibold" href="../">
                 Home
               </Link>
-              <Link className="text-md font-semibold" href="./">
+              <Link className="text-md font-semibold" href="../creature">
                 Creature
               </Link>
-              <Link className="text-md font-semibold text-end" href="../plant">
+              <Link className="text-md font-semibold" href="../plant">
                 Plant
               </Link>
             </div>
-            <div className="text-end">
+            <div>
               <Link className="text-md font-semibold" href="../login">
                 Login
               </Link>
@@ -100,9 +100,14 @@ export default function adminCreature() {
               <td className="border-solid border-2">Ubur-ubur</td>
               <td className="border-solid border-2">Ubur-ubur</td>
               <td className="text-center border-solid border-2">
-                <button className="bg-yellow-300 rounded-md px-4 m-0.5 inline-flex items-center justify-start space-x-1">
-                  <Icon icon="basil:edit-outline" />
-                  <span>Edit</span>
+                <button className="bg-yellow-300 rounded-md px-4 m-0.5 ">
+                  <Link
+                    className="inline-flex items-center justify-start space-x-1"
+                    href="./creature/edit"
+                  >
+                    <Icon icon="basil:edit-outline" />
+                    <span>Edit</span>
+                  </Link>
                 </button>
                 <button className="bg-red-600 rounded-md px-1.5 m-0.5 inline-flex items-center space-x-1">
                   <InlineIcon icon="mdi-light:alert" />
