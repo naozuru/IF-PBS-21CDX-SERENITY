@@ -17,9 +17,9 @@ class MakhlukController extends Controller
     public function index()
     {
         $showAllData = Makhluk::all();
-
-        return $showAllData;
+        return response()->json($showAllData);
     }
+
 
     public function showSpesificData()
     {
