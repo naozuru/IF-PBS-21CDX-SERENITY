@@ -56,7 +56,7 @@ const GetCreature: React.FC<MakhlukProps> = ({ initialData }) => {
         <thead>
           <tr>
             <th className="w-1/12 border-solid border-2 p-3 bg-emerald-800">
-              No
+              ID
             </th>
             <th className="w-2/12 border-solid border-2 p-3 bg-emerald-800">
               Nama ID
@@ -67,16 +67,16 @@ const GetCreature: React.FC<MakhlukProps> = ({ initialData }) => {
             <th className="w-2/12 border-solid border-2 p-3 bg-emerald-800">
               Domain
             </th>
-            <th className="w-2/12 border-solid border-2 p-3 bg-emerald-800">
+            <th className="w-1/12 border-solid border-2 p-3 bg-emerald-800">
               Kingdom
             </th>
-            <th className="w-2/12 border-solid border-2 p-3 bg-emerald-800">
+            <th className="w-1/12 border-solid border-2 p-3 bg-emerald-800">
               Phylum
             </th>
-            <th className="w-2/12 border-solid border-2 p-3 bg-emerald-800">
+            <th className="w-1/12 border-solid border-2 p-3 bg-emerald-800">
               Class
             </th>
-            <th className="w-2/12 border-solid border-2 p-3 bg-emerald-800">
+            <th className="w-1/12 border-solid border-2 p-3 bg-emerald-800">
               Order
             </th>
             <th className="w-2/12 border-solid border-2 p-3 bg-emerald-800">
@@ -102,19 +102,21 @@ const GetCreature: React.FC<MakhlukProps> = ({ initialData }) => {
               <td className="text-center border-solid border-2">
                 {makhluk.id}
               </td>
-              <td className="border-solid border-2">{makhluk.name_ID}</td>
-              <td className="border-solid border-2">{makhluk.name_EN}</td>
-              <td className="border-solid border-2">{makhluk.domain}</td>
-              <td className="border-solid border-2">{makhluk.kingdom}</td>
-              <td className="border-solid border-2">{makhluk.phylum}</td>
-              <td className="border-solid border-2">{makhluk.class}</td>
-              <td className="border-solid border-2">{makhluk.order}</td>
-              <td className="border-solid border-2">{makhluk.infraorder}</td>
-              <td className="border-solid border-2">{makhluk.family}</td>
-              <td className="border-solid border-2">{makhluk.genus}</td>
-              <td className="border-solid border-2">{makhluk.species}</td>
+              <td className="border-solid border-2 px-2">{makhluk.name_ID}</td>
+              <td className="border-solid border-2 px-2">{makhluk.name_EN}</td>
+              <td className="border-solid border-2 px-2">{makhluk.domain}</td>
+              <td className="border-solid border-2 px-2">{makhluk.kingdom}</td>
+              <td className="border-solid border-2 px-2">{makhluk.phylum}</td>
+              <td className="border-solid border-2 px-2">{makhluk.class}</td>
+              <td className="border-solid border-2 px-2">{makhluk.order}</td>
+              <td className="border-solid border-2 px-2">
+                {makhluk.infraorder}
+              </td>
+              <td className="border-solid border-2 px-2">{makhluk.family}</td>
+              <td className="border-solid border-2 px-2">{makhluk.genus}</td>
+              <td className="border-solid border-2 px-2">{makhluk.species}</td>
               <td className="text-center border-solid border-2">
-                <button className="bg-yellow-300 rounded-md px-4 m-0.5">
+                <button className="bg-yellow-500 rounded-md px-4 m-0.5">
                   <Link
                     className="inline-flex items-center space-x-1"
                     href="./creature/edit"
