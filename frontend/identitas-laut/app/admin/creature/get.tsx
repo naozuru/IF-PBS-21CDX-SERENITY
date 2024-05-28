@@ -34,6 +34,19 @@ const GetCreature: React.FC<MakhlukProps> = ({ initialData }) => {
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [deleteId, setDeleteId] = useState<number | null>(null);
+  const [searchTerm, setSearchTerm] = useState<string>("");
+
+  // Handle the modal open event
+  const openModal = (id: number) => {
+    setDeleteId(id);
+    setShowModal(true);
+  };
+
+  // Handle the modal close event
+  const closeModal = () => {
+    setShowModal(false);
+    setDeleteId(null);
+  };
 
   // Create a function to handle the delete event
   const handleDelete = async () => {
@@ -48,18 +61,6 @@ const GetCreature: React.FC<MakhlukProps> = ({ initialData }) => {
         console.error("There was an error deleting the data!", error);
       }
     }
-  };
-
-  // Handle the modal open event
-  const openModal = (id: number) => {
-    setDeleteId(id);
-    setShowModal(true);
-  };
-
-  // Handle the modal close event
-  const closeModal = () => {
-    setShowModal(false);
-    setDeleteId(null);
   };
 
   // Fetch the data on the client side
@@ -82,6 +83,22 @@ const GetCreature: React.FC<MakhlukProps> = ({ initialData }) => {
     }
   }, []);
 
+  const handleSearch = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  
+    if (e.target.value === "") {
+      setData(initialData);
+    } else {
+      try {
+        const response = await axios.get(`http://localhost:8000/api/makhluks/${e.target.value}`);
+        setData(response.data);
+      } catch (error) {
+        console.error("There was an error fetching the data!", error);
+      }
+    }
+  };
+  
+
   // Show a loading message while the data is being fetched
   if (loading) {
     return <Loading />;
@@ -89,6 +106,14 @@ const GetCreature: React.FC<MakhlukProps> = ({ initialData }) => {
 
   return (
     <div className="m-2 text-sm">
+      <input
+        type="text"
+        placeholder="Search..."
+        value={searchTerm}
+        onChange={handleSearch}
+        className="my-4 p-2 border border-gray-300 rounded text-black"
+      />
+
       <table className="table-auto w-full">
         <thead>
           <tr>
@@ -117,6 +142,7 @@ const GetCreature: React.FC<MakhlukProps> = ({ initialData }) => {
             <th className="border-solid border-2 p-3 bg-emerald-800">Action</th>
           </tr>
         </thead>
+
         <tbody>
           {data.map((makhluk) => (
             <tr key={makhluk.id}>
@@ -140,7 +166,7 @@ const GetCreature: React.FC<MakhlukProps> = ({ initialData }) => {
                 <button className="bg-yellow-500 rounded-md px-4 m-0.5">
                   <Link
                     className="inline-flex items-center space-x-1"
-                    href="./creature/edit"
+                    href={`./creature/edit/${makhluk.id}`}
                   >
                     <Icon icon="basil:edit-outline" />
                     <span>Edit</span>

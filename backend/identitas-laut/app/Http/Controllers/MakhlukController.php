@@ -17,7 +17,7 @@ class MakhlukController extends Controller
     public function index()
     {
         $showAllData = Makhluk::all();
-        return response()->json($showAllData);
+        return $showAllData;
     }
 
 
@@ -60,14 +60,33 @@ class MakhlukController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Makhluk $makhluk)
+    // Method untuk menampilkan satu data atau mencari berdasarkan beberapa kolom
+    public function show(Request $request, $makhluk)
     {
-        $showOneData = Makhluk::find($makhluk);
+        if (is_numeric($makhluk)) {
+            // Jika $makhluk adalah angka, maka cari berdasarkan ID
+            $showOneData = Makhluk::find($makhluk);
+        } else {
+            // Jika $makhluk adalah string, maka lakukan pencarian di beberapa kolom
+            $keyword = $makhluk;
+            $showOneData = Makhluk::where('name_ID', 'like', '%' . $keyword . '%')
+                ->orWhere('name_EN', 'like', '%' . $keyword . '%')
+                ->orWhere('domain', 'like', '%' . $keyword . '%')
+                ->orWhere('kingdom', 'like', '%' . $keyword . '%')
+                ->orWhere('phylum', 'like', '%' . $keyword . '%')
+                ->orWhere('class', 'like', '%' . $keyword . '%')
+                ->orWhere('order', 'like', '%' . $keyword . '%')
+                ->orWhere('infraorder', 'like', '%' . $keyword . '%')
+                ->orWhere('family', 'like', '%' . $keyword . '%')
+                ->orWhere('genus', 'like', '%' . $keyword . '%')
+                ->orWhere('species', 'like', '%' . $keyword . '%')
+                ->get();
+        }
 
-        return $showOneData;
-        
+        return response()->json($showOneData);
     }
 
+    
     /**
      * Show the form for editing the specified resource.
      */

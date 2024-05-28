@@ -25,6 +25,7 @@ Route::apiResources([
 ]);
 
 Route::get('spesific_data_makhluks', [MakhlukController::class, 'showSpesificData']);
+Route::get('makhluks/{makhluk}', [MakhlukController::class, 'show']);
 // Route::get('/makhluks/{id}', [MakhlukController::class, 'show']);
 // Route::delete('/makhluks/{id}', [MakhlukController::class, 'destroy']);
 // Route::post('/makhluks/store', [MakhlukController::class, 'store']);
