@@ -6,6 +6,7 @@ import axios from "axios";
 import Link from "next/link";
 import { Icon, InlineIcon } from "@iconify/react";
 import Loading from "@/app/components/loading";
+import SearchCreature from "@/app/components/searchCreature";
 
 // Create a type for the data
 type Makhluk = {
@@ -34,7 +35,6 @@ const GetCreature: React.FC<MakhlukProps> = ({ initialData }) => {
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [deleteId, setDeleteId] = useState<number | null>(null);
-  const [searchTerm, setSearchTerm] = useState<string>("");
 
   // Handle the modal open event
   const openModal = (id: number) => {
@@ -82,21 +82,6 @@ const GetCreature: React.FC<MakhlukProps> = ({ initialData }) => {
         });
     }
   }, []);
-
-  const handleSearch = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
-  
-    if (e.target.value === "") {
-      setData(initialData);
-    } else {
-      try {
-        const response = await axios.get(`http://localhost:8000/api/makhluks/${e.target.value}`);
-        setData(response.data);
-      } catch (error) {
-        console.error("There was an error fetching the data!", error);
-      }
-    }
-  };
   
 
   // Show a loading message while the data is being fetched
@@ -106,13 +91,8 @@ const GetCreature: React.FC<MakhlukProps> = ({ initialData }) => {
 
   return (
     <div className="m-2 text-sm">
-      <input
-        type="text"
-        placeholder="Search..."
-        value={searchTerm}
-        onChange={handleSearch}
-        className="my-4 p-2 border border-gray-300 rounded text-black"
-      />
+      
+      <SearchCreature setData={setData} />
 
       <table className="table-auto w-full">
         <thead>
