@@ -10,8 +10,8 @@ type LayoutProps = {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const navItems = [
     { name: "Dashboard", path: "/admin", icon: "mdi:home" },
-    { name: "Creature", path: "/admin/creature", icon: "mdi:home" },
-    { name: "Plant", path: "/admin/plant", icon: "mdi:account" },
+    { name: "Creature", path: "/admin/creature", icon: "icon-park-solid:fish-one" },
+    { name: "Plant", path: "/admin/plant", icon: "ph:plant-fill" },
     { name: "Settings", path: "/settings", icon: "mdi:cog" },
     // Tambahkan item navigasi lainnya di sini
   ];
@@ -19,7 +19,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="flex">
       <SideNav items={navItems} />
-      <main className="flex-grow p-4">{children}</main>
+      <main className="flex-grow p-2">{children}</main>
     </div>
   );
 };
