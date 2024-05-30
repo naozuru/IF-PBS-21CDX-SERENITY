@@ -15,6 +15,7 @@ class PlantSeeder extends Seeder
     {
         DB::table('plants')->insert([
             [
+<<<<<<< HEAD
                 'name_id' => 'Alga merah',
                 'name_en' => 'Red Alga',
                 'domain' => 'Domain',
@@ -29,6 +30,24 @@ class PlantSeeder extends Seeder
                 'filume' => 'Rhodophyta',
                 'class' => 'Monocotyledoneae',
                 'pembentukan' => 'spora',
+=======
+                'name_id' => 'Kelp',
+                'name_en' => 'Kelp',
+                'domain' => 'Eukaryota',
+                'phylum' => 'Gyrista',
+                'subphylum' => 'Ochrophytina',
+                'class' => 'Phaeophyceae',
+                'order' => 'Laminariales',
+            ],
+            [
+                'name_id' => 'Ganggang',
+                'name_en' => 'Alga',
+                'domain' => 'Eukaryota, Bacteria',
+                'phylum' => 'Chlorophyta (for green algae)',
+                'subphylum' => 'Chlorophytina',
+                'class' => 'Chlorophyceae',
+                'order' => '',
+>>>>>>> 2e08343bf852e2da88afbe03f49c9375642be540
             ],
         ]);
     }
