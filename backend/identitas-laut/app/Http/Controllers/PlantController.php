@@ -38,7 +38,7 @@ class PlantController extends Controller
            // handle the error or return a response indicating the duplication
            return response()->json(['error' => 'Nama tanaman sudah ada!'], 422);
        } else {
-           // name_ID does not exist
+           // name_ID does not exist.
            // proceed with storing the new resource
            $plant = Plant::create($request->all());
            return $plant;
