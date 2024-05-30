@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             MakhlukSeeder::class,
+            PlantSeeder::class,
         ]);
     }
 }
