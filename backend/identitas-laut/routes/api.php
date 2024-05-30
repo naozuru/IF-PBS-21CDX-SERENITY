@@ -29,11 +29,7 @@ Route::apiResources([
 Route::get('spesific_data_makhluks', [MakhlukController::class, 'showSpesificData']);
 Route::get('makhluks/{makhluk}', [MakhlukController::class, 'show']);
 
-<<<<<<< HEAD
-// Route::get('/makhluks/{id}', [MakhlukController::class, 'show']);
-=======
 // Route::get('/m', [MakhlukController::class, 'index']);
->>>>>>> 2e08343bf852e2da88afbe03f49c9375642be540
 
 // Route::delete('/makhluks/{id}', [MakhlukController::class, 'destroy']);
 // Route::post('/makhluks/store', [MakhlukController::class, 'store']);
