@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('plants', function (Blueprint $table) {
             $table->id();
-            $table->string('name_ID');
-            $table->string('name_EN');
+            $table->string('name_id')->unique();
+            $table->string('name_en')->nullable();
             $table->string('domain')->nullable();
             $table->string('phylum')->nullable();
             $table->string('subphylum')->nullable();

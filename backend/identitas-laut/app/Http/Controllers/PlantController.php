@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Plant;
 use App\Http\Requests\StorePlantRequest;
 use App\Http\Requests\UpdatePlantRequest;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+
 
 class PlantController extends Controller
 {
@@ -32,7 +35,7 @@ class PlantController extends Controller
     public function store(StorePlantRequest $request)
     {
        // cek nama_ID apakah sudah ada
-       $existingPlant = Plant::where('name_ID', $request->name_ID)->first();
+       $existingPlant = Plant::where('name_id', $request->name_id)->first();
        if ($existingPlant) {
            // name_ID already exists
            // handle the error or return a response indicating the duplication
