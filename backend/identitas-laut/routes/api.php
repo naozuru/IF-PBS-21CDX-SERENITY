@@ -4,6 +4,7 @@ use App\Models\Makhluk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MakhlukController;
+use App\Http\Controllers\PlantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,11 +23,14 @@ use App\Http\Controllers\MakhlukController;
 
 Route::apiResources([
     'makhluks' => MakhlukController::class,
+    'plants' => PlantController::class,
 ]);
 
 Route::get('spesific_data_makhluks', [MakhlukController::class, 'showSpesificData']);
 Route::get('makhluks/{makhluk}', [MakhlukController::class, 'show']);
-// Route::get('/makhluks/{id}', [MakhlukController::class, 'show']);
+
+// Route::get('/m', [MakhlukController::class, 'index']);
+
 // Route::delete('/makhluks/{id}', [MakhlukController::class, 'destroy']);
 // Route::post('/makhluks/store', [MakhlukController::class, 'store']);
 // Route::put('/makhluks/{$name_ID}', [MakhlukController::class, 'update']);
