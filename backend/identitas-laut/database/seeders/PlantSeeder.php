@@ -15,8 +15,8 @@ class PlantSeeder extends Seeder
     {
         DB::table('plants')->insert([
             [
-                'name_id' => 'Kelp',
-                'name_en' => 'Kelp',
+                'name_ID' => 'Kelp',
+                'name_EN' => 'Kelp',
                 'domain' => 'Eukaryota',
                 'phylum' => 'Gyrista',
                 'subphylum' => 'Ochrophytina',
@@ -24,8 +24,8 @@ class PlantSeeder extends Seeder
                 'order' => 'Laminariales',
             ],
             [
-                'name_id' => 'Ganggang',
-                'name_en' => 'Alga',
+                'name_ID' => 'Ganggang',
+                'name_EN' => 'Alga',
                 'domain' => 'Eukaryota, Bacteria',
                 'phylum' => 'Chlorophyta (for green algae)',
                 'subphylum' => 'Chlorophytina',

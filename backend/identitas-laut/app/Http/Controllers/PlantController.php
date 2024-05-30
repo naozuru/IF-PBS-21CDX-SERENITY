@@ -32,7 +32,7 @@ class PlantController extends Controller
     public function store(StorePlantRequest $request)
     {
        // cek nama_ID apakah sudah ada
-       $existingPlant = Plant::where('name_id', $request->name_id)->first();
+       $existingPlant = Plant::where('name_ID', $request->name_ID)->first();
        if ($existingPlant) {
            // name_ID already exists
            // handle the error or return a response indicating the duplication
