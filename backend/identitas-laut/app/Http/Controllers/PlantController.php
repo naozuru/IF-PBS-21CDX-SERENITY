@@ -23,7 +23,13 @@ class PlantController extends Controller
      */
     public function create()
     {
+<<<<<<< HEAD
         //
+=======
+        $showAllPlants = Plant::all();
+
+        return $showAllPlants;
+>>>>>>> 2e08343bf852e2da88afbe03f49c9375642be540
     }
 
     /**
@@ -31,6 +37,7 @@ class PlantController extends Controller
      */
     public function store(StorePlantRequest $request)
     {
+<<<<<<< HEAD
        // cek nama_ID apakah sudah ada
        $existingPlant = Plant::where('name_ID', $request->name_ID)->first();
        if ($existingPlant) {
@@ -43,6 +50,9 @@ class PlantController extends Controller
            $plant = Plant::create($request->all());
            return $plant;
        }
+=======
+        //
+>>>>>>> 2e08343bf852e2da88afbe03f49c9375642be540
     }
 
     /**

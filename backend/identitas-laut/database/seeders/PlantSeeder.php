@@ -15,15 +15,24 @@ class PlantSeeder extends Seeder
     {
         DB::table('plants')->insert([
             [
+<<<<<<< HEAD
                 'name_ID' => 'Kelp',
                 'name_EN' => '-',
                 'kingdom' => '-',
                 'domain' => 'Eukaryoto',
                 'phylum' => 'Gyrista',
+=======
+                'name_id' => 'Kelp',
+                'name_en' => 'Kelp',
+                'domain' => 'Eukaryota',
+                'phylum' => 'Gyrista',
+                'subphylum' => 'Ochrophytina',
+>>>>>>> 2e08343bf852e2da88afbe03f49c9375642be540
                 'class' => 'Phaeophyceae',
                 'order' => 'Laminariales',
             ],
             [
+<<<<<<< HEAD
                 'name_ID' => 'Myriophyllum',
                 'name_EN' => '-',
                 'kingdom' => '-',
@@ -31,6 +40,15 @@ class PlantSeeder extends Seeder
                 'phylum' => '-',
                 'class' => '-',
                 'order' => 'Saxifragales',
+=======
+                'name_id' => 'Ganggang',
+                'name_en' => 'Alga',
+                'domain' => 'Eukaryota, Bacteria',
+                'phylum' => 'Chlorophyta (for green algae)',
+                'subphylum' => 'Chlorophytina',
+                'class' => 'Chlorophyceae',
+                'order' => '',
+>>>>>>> 2e08343bf852e2da88afbe03f49c9375642be540
             ],
         ]);
     }
