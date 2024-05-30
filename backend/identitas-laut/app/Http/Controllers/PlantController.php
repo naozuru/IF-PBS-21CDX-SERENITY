@@ -23,7 +23,9 @@ class PlantController extends Controller
      */
     public function create()
     {
-        //
+        $showAllPlants = Plant::all();
+
+        return $showAllPlants;
     }
 
     /**
