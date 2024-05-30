@@ -91,58 +91,58 @@ const GetCreature: React.FC<MakhlukProps> = ({ initialData }) => {
 
   return (
     <div className="m-2 text-sm">
-      
+
       <SearchCreature setData={setData} />
 
       <table className="table-auto w-full">
         <thead>
           <tr>
-            <th className="border-solid border-2 p-3 bg-emerald-800">ID</th>
-            <th className="border-solid border-2 p-3 bg-emerald-800">
+            <th className="border-solid border-2 border-gray-500 p-3 bg-emerald-800">ID</th>
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
               Nama ID
             </th>
-            <th className="border-solid border-2 p-3 bg-emerald-800">
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
               Nama EN
             </th>
-            <th className="border-solid border-2 p-3 bg-emerald-800">Domain</th>
-            <th className="border-solid border-2 p-3 bg-emerald-800">
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">Domain</th>
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
               Kingdom
             </th>
-            <th className="border-solid border-2 p-3 bg-emerald-800">Phylum</th>
-            <th className="border-solid border-2 p-3 bg-emerald-800">Class</th>
-            <th className="border-solid border-2 p-3 bg-emerald-800">Order</th>
-            <th className="border-solid border-2 p-3 bg-emerald-800">
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">Phylum</th>
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">Class</th>
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">Order</th>
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
               Infraorder
             </th>
-            <th className="border-solid border-2 p-3 bg-emerald-800">Family</th>
-            <th className="border-solid border-2 p-3 bg-emerald-800">Genus</th>
-            <th className="border-solid border-2 p-3 bg-emerald-800">
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">Family</th>
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">Genus</th>
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
               Species
             </th>
-            <th className="border-solid border-2 p-3 bg-emerald-800">Action</th>
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">Action</th>
           </tr>
         </thead>
 
         <tbody>
           {data.map((makhluk) => (
             <tr key={makhluk.id}>
-              <td className="text-center border-solid border-2">
+              <td className="text-center border-solid border-2 border-gray-400">
                 {makhluk.id}
               </td>
-              <td className="border-solid border-2 px-2">{makhluk.name_ID}</td>
-              <td className="border-solid border-2 px-2">{makhluk.name_EN}</td>
-              <td className="border-solid border-2 px-2">{makhluk.domain}</td>
-              <td className="border-solid border-2 px-2">{makhluk.kingdom}</td>
-              <td className="border-solid border-2 px-2">{makhluk.phylum}</td>
-              <td className="border-solid border-2 px-2">{makhluk.class}</td>
-              <td className="border-solid border-2 px-2">{makhluk.order}</td>
-              <td className="border-solid border-2 px-2">
+              <td className="border-solid border-2 border-gray-400 px-2">{makhluk.name_ID}</td>
+              <td className="border-solid border-2 border-gray-400 px-2">{makhluk.name_EN}</td>
+              <td className="border-solid border-2 border-gray-400 px-2">{makhluk.domain}</td>
+              <td className="border-solid border-2 border-gray-400 px-2">{makhluk.kingdom}</td>
+              <td className="border-solid border-2 border-gray-400 px-2">{makhluk.phylum}</td>
+              <td className="border-solid border-2 border-gray-400 px-2">{makhluk.class}</td>
+              <td className="border-solid border-2 border-gray-400 px-2">{makhluk.order}</td>
+              <td className="border-solid border-2 border-gray-400 px-2">
                 {makhluk.infraorder}
               </td>
-              <td className="border-solid border-2 px-2">{makhluk.family}</td>
-              <td className="border-solid border-2 px-2">{makhluk.genus}</td>
-              <td className="border-solid border-2 px-2">{makhluk.species}</td>
-              <td className="text-center border-solid border-2">
+              <td className="border-solid border-2 border-gray-400 px-2">{makhluk.family}</td>
+              <td className="border-solid border-2 border-gray-400 px-2">{makhluk.genus}</td>
+              <td className="border-solid border-2 border-gray-400 px-2">{makhluk.species}</td>
+              <td className="text-center border-solid border-2 border-gray-400">
                 <button className="bg-yellow-500 rounded-md px-4 m-0.5">
                   <Link
                     className="inline-flex items-center space-x-1"
