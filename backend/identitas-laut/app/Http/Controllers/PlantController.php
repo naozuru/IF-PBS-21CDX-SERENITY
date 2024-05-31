@@ -74,7 +74,7 @@ class PlantController extends Controller
         ->orWhere('name_en', $request->name_en)
         ->first();
         if ($existingPlant && $existingPlant->id !== $plant->id) {
-            // name_id already exists in a different plant
+            // name_id or name_en already exists
             // handle the error or return a response indicating the duplication
             return response()->json(['message' => 'The sea plant data already exists.', 'data' => $existingPlant], 400);
         } else {
@@ -90,8 +90,8 @@ class PlantController extends Controller
      */
     public function destroy(Plant $plant)
     {
-        $plant->delete();
+        $deleteDataPlant = Plant::destroy($plant->id);
 
-        return response()->json(['message' => 'Data tumbuhan laut berhasil dihapus!']);
+        return response()->json(['message' => 'Sea plant data successfully deleted!', 'data' => $plant, 'deletedDataPlant' => $deleteDataPlant], 201);
     }
 }
