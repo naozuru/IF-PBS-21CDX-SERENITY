@@ -8,7 +8,6 @@ use App\Http\Requests\UpdatePlantRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-
 class PlantController extends Controller
 {
     /**
@@ -34,18 +33,19 @@ class PlantController extends Controller
      */
     public function store(StorePlantRequest $request)
     {
-       // cek nama_ID apakah sudah ada
-       $existingPlant = Plant::where('name_id', $request->name_id)->first();
-       if ($existingPlant) {
-           // name_ID already exists
-           // handle the error or return a response indicating the duplication
-           return response()->json(['error' => 'Nama tanaman sudah ada!'], 422);
-       } else {
-           // name_ID does not exist.
-           // proceed with storing the new resource
-           $plant = Plant::create($request->all());
-           return $plant;
-       }
+        // cek nama_id apakah sudah ada
+        $existingPlant = Plant::where('name_id', $request->name_id)->first();
+        if ($existingPlant) {
+            // name_id already exists
+            // handle the error or return a response indicating the duplication
+            return response()->json(['message' => 'The name plant already exists.'], 409);
+        } else {
+            // name_id does not exist.
+            // proceed with storing the new resource
+            // and return a response indicating the success
+            $plant = Plant::create($request->all());
+            return response()->json(['message' => 'Sea plant data successfully added!', 'data' => $plant], 201);
+        }
     }
 
     /**
@@ -78,6 +78,8 @@ class PlantController extends Controller
      */
     public function destroy(Plant $plant)
     {
-        //
+        $plant->delete();
+
+        return response()->json(['message' => 'Data tumbuhan laut berhasil dihapus!']);
     }
 }
