@@ -69,7 +69,8 @@ class PlantController extends Controller
      */
     public function update(UpdatePlantRequest $request, Plant $plant)
     {
-        //
+        $plant->update($request->all());
+        return $plant;
     }
 
     /**
