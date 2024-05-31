@@ -92,7 +92,7 @@ class MakhlukController extends Controller
      */
     public function edit(Makhluk $makhluk)
     {
-        //
+        
     }
 
     /**

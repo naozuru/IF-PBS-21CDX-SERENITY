@@ -32,6 +32,15 @@ class PlantSeeder extends Seeder
                 'class' => 'Chlorophyceae',
                 'order' => 'Lague',
             ],
+            [
+                'name_id' => 'Anemo',
+                'name_en' => 'Nemo',
+                'domain' => 'Eukaryota',
+                'phylum' => 'Cetidae',
+                'subphylum' => 'choltae',
+                'class' => 'palaside',
+                'order' => 'gae',
+            ],
         ]);
     }
 }

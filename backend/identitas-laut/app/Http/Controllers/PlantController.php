@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Plant;
 use App\Http\Requests\StorePlantRequest;
 use App\Http\Request\UpdatePlantRequest;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class PlantController extends Controller
 {
@@ -14,7 +16,6 @@ class PlantController extends Controller
     public function index()
     {
         $showAllPlants = Plant::all();
-
         return $showAllPlants;
     }
 
@@ -49,7 +50,10 @@ class PlantController extends Controller
      */
     public function edit(Plant $plant)
     {
-        //
+        //return view edit dengan data plant
+        $editData = plant::edit($plant->id);
+
+        return $editData;
     }
 
     /**
@@ -57,15 +61,7 @@ class PlantController extends Controller
      */
     public function update(updateplantsRequest $request, plant $plant)
     {
-        // cek nama_ID apakah sudah ada
-        $existingplant = plant::where('name_id', $request->name_id)->first();
-        if($existingplant){
-            return response()->json(['error'=> 'nama sudah ada!'],422);
-        }else{
-            $updateData = palnt::were('id', $plant->id)->update($request->all());
-            return $updateData;
-        }
-        
+
     }
 
     /**
@@ -73,6 +69,6 @@ class PlantController extends Controller
      */
     public function destroy(Plant $plant)
     {
-        //
+       
     }
 }
