@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Plant;
 use App\Http\Requests\StorePlantRequest;
-use App\Http\Requests\UpdatePlantRequest;
+use App\Http\Request\UpdatePlantRequest;
 
 class PlantController extends Controller
 {
@@ -55,9 +55,17 @@ class PlantController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePlantRequest $request, Plant $plant)
+    public function update(updateplantsRequest $request, plant $plant)
     {
-        //
+        // cek nama_ID apakah sudah ada
+        $existingplant = plant::where('name_id', $request->name_id)->first();
+        if($existingplant){
+            return response()->json(['error'=> 'nama sudah ada!'],422);
+        }else{
+            $updateData = palnt::were('id', $plant->id)->update($request->all());
+            return $updateData;
+        }
+        
     }
 
     /**

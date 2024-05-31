@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MakhlukController;
 use App\Http\Controllers\PlantController;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\UpdateRequest;
 
 /*
 |--------------------------------------------------------------------------
