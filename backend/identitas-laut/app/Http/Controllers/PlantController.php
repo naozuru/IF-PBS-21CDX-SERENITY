@@ -38,7 +38,7 @@ class PlantController extends Controller
         if ($existingPlant) {
             // name_id already exists
             // handle the error or return a response indicating the duplication
-            return response()->json(['message' => 'The name plant already exists.'], 409);
+            return response()->json(['message' => 'The name of sea plant already exists.'], 409);
         } else {
             // name_id does not exist.
             // proceed with storing the new resource
@@ -69,8 +69,20 @@ class PlantController extends Controller
      */
     public function update(UpdatePlantRequest $request, Plant $plant)
     {
-        $plant->update($request->all());
-        return $plant;
+        // cek nama_id dan nama_en apakah sudah ada
+        $existingPlant = Plant::where('name_id', $request->name_id)
+        ->orWhere('name_en', $request->name_en)
+        ->first();
+        if ($existingPlant && $existingPlant->id !== $plant->id) {
+            // name_id already exists in a different plant
+            // handle the error or return a response indicating the duplication
+            return response()->json(['message' => 'The sea plant data already exists.', 'data' => $existingPlant], 400);
+        } else {
+            // name_id and name_en do not exist.
+            // proceed with updating the resource
+            $plant->update($request->all());
+            return response()->json(['message' => 'Sea plant data successfully updated!', 'data' => $plant], 201);
+        }
     }
 
     /**
