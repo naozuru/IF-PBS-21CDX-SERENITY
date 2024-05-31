@@ -69,6 +69,8 @@ class PlantController extends Controller
      */
     public function destroy(Plant $plant)
     {
-       
+        $deleteData = Makhluk::destroy($makhluk->id);
+
+        return $deleteData;
     }
 }
