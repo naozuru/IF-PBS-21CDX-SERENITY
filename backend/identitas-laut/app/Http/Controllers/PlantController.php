@@ -53,7 +53,27 @@ class PlantController extends Controller
      */
     public function show(Plant $plant)
     {
-        //
+        if (is_numeric($plant)) {
+            // Jika $plant adalah angka, maka cari berdasarkan ID
+            $showOneData = Plant::find($plant);
+        } else {
+            // Jika $plant adalah string, maka lakukan pencarian di beberapa kolom
+            $keyword = $plant;
+            $showOneData = Plant::where('name_ID', 'like', '%' . $keyword . '%')
+                ->orWhere('name_EN', 'like', '%' . $keyword . '%')
+                ->orWhere('domain', 'like', '%' . $keyword . '%')
+                ->orWhere('kingdom', 'like', '%' . $keyword . '%')
+                ->orWhere('phylum', 'like', '%' . $keyword . '%')
+                ->orWhere('class', 'like', '%' . $keyword . '%')
+                ->orWhere('order', 'like', '%' . $keyword . '%')
+                ->orWhere('infraorder', 'like', '%' . $keyword . '%')
+                ->orWhere('family', 'like', '%' . $keyword . '%')
+                ->orWhere('genus', 'like', '%' . $keyword . '%')
+                ->orWhere('species', 'like', '%' . $keyword . '%')
+                ->get();
+        }
+
+        return response()->json($showOneData);
     }
 
     /**
