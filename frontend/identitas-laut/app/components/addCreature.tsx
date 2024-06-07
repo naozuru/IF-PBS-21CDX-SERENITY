@@ -2,7 +2,7 @@ import React from "react";
 import { Icon, InlineIcon } from "@iconify/react";
 import Link from "next/link";
 
-export default function AddCreature() {
+export default function ButtonAddCreature() {
   return (
     <div>
       <button className="bg-teal-300 rounded-md mr-3">

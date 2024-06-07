@@ -21,7 +21,7 @@ const SideNav: React.FC<SideNavProps> = ({ items }) => {
 
   return (
     <div
-      className={`h-screen ${
+      className={`min-h-screen ${
         isExpanded ? "w-64" : "w-20"
       } bg-gray-800 text-white transition-width duration-300`}
     >
