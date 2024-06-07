@@ -10,20 +10,16 @@ import SearchCreature from "@/app/components/searchCreature";
 import AddCreature from "@/app/components/addCreature";
 
 // Create a type for the data
-type Makhluk = {
-  id: number;
-  name_ID: string;
-  name_EN: string;
-  domain: string;
-  kingdom: string;
-  phylum: string;
-  class: string;
-  order: string;
-  infraorder: string;
-  family: string;
-  genus: string;
-  species: string;
-};
+type Plant = {
+    id: number;
+    name_id: string;
+    name_en: string;
+    domain: string;
+    phylum: string;
+    subphylum: string;
+    class: string;
+    order: string;
+  };
 
 // Create a type for the props
 type MakhlukProps = {
