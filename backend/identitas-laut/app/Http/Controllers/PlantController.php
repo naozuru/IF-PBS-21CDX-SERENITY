@@ -51,7 +51,7 @@ class PlantController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Plant $plant)
+    public function show(Request $request, $plant)
     {
         if (is_numeric($plant)) {
             // Jika $plant adalah angka, maka cari berdasarkan ID
@@ -59,17 +59,13 @@ class PlantController extends Controller
         } else {
             // Jika $plant adalah string, maka lakukan pencarian di beberapa kolom
             $keyword = $plant;
-            $showOneData = Plant::where('name_ID', 'like', '%' . $keyword . '%')
-                ->orWhere('name_EN', 'like', '%' . $keyword . '%')
+            $showOneData = Plant::where('name_id', 'like', '%' . $keyword . '%')
+                ->orWhere('name_en', 'like', '%' . $keyword . '%')
                 ->orWhere('domain', 'like', '%' . $keyword . '%')
-                ->orWhere('kingdom', 'like', '%' . $keyword . '%')
                 ->orWhere('phylum', 'like', '%' . $keyword . '%')
+                ->orWhere('subphylum', 'like', '%' . $keyword . '%')
                 ->orWhere('class', 'like', '%' . $keyword . '%')
                 ->orWhere('order', 'like', '%' . $keyword . '%')
-                ->orWhere('infraorder', 'like', '%' . $keyword . '%')
-                ->orWhere('family', 'like', '%' . $keyword . '%')
-                ->orWhere('genus', 'like', '%' . $keyword . '%')
-                ->orWhere('species', 'like', '%' . $keyword . '%')
                 ->get();
         }
 

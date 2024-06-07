@@ -26,10 +26,9 @@ Route::apiResources([
     'plants' => PlantController::class,
 ]);
 
-Route::get('spesific_data_makhluks', [MakhlukController::class, 'showSpesificData']);
-Route::get('makhluks/{makhluk}', [MakhlukController::class, 'show']);
-
-// Route::get('/m', [MakhlukController::class, 'index']);
+// Route::get('spesific_data_makhluks', [MakhlukController::class, 'showSpesificData']);
+// Route::get('makhluks/{makhluk}', [MakhlukController::class, 'show']);
+// Route::get('plants/{plant}', [PlantController::class, 'show']);
 
 // Route::delete('/makhluks/{id}', [MakhlukController::class, 'destroy']);
 // Route::post('/makhluks/store', [MakhlukController::class, 'store']);
