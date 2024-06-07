@@ -6,29 +6,29 @@ import axios from "axios";
 import Link from "next/link";
 import { Icon, InlineIcon } from "@iconify/react";
 import Loading from "@/app/components/loading";
-import SearchCreature from "@/app/components/searchCreature";
-import AddCreature from "@/app/components/addCreature";
+import SearchPlant from "@/app/components/searchPlant";
+import AddPlant from "@/app/components/addPlant";
 
 // Create a type for the data
 type Plant = {
-    id: number;
-    name_id: string;
-    name_en: string;
-    domain: string;
-    phylum: string;
-    subphylum: string;
-    class: string;
-    order: string;
-  };
+  id: number;
+  name_id: string;
+  name_en: string;
+  domain: string;
+  phylum: string;
+  subphylum: string;
+  class: string;
+  order: string;
+};
 
 // Create a type for the props
-type MakhlukProps = {
-  initialData: Makhluk[];
+type PlantProps = {
+  initialData: Plant[];
 };
 
 // Create a type for the component
-const GetCreature: React.FC<MakhlukProps> = ({ initialData }) => {
-  const [data, setData] = useState<Makhluk[]>(initialData || []);
+const GetPlant: React.FC<PlantProps> = ({ initialData }) => {
+  const [data, setData] = useState<Plant[]>(initialData || []);
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [deleteId, setDeleteId] = useState<number | null>(null);
@@ -49,7 +49,7 @@ const GetCreature: React.FC<MakhlukProps> = ({ initialData }) => {
   const handleDelete = async () => {
     if (deleteId !== null) {
       try {
-        await axios.delete(`http://localhost:8000/api/makhluks/${deleteId}`);
+        await axios.delete(`http://localhost:8000/api/plants/${deleteId}`);
         // Filter out the deleted item from the state
         const updatedData = data.filter((makhluk) => makhluk.id !== deleteId);
         setData(updatedData);
@@ -67,7 +67,7 @@ const GetCreature: React.FC<MakhlukProps> = ({ initialData }) => {
       // Fetch the data
       axios
         // Fetch the data from the API
-        .get("http://localhost:8000/api/makhluks")
+        .get("http://localhost:8000/api/plants")
         .then((response) => {
           setData(response.data);
           setLoading(false);
@@ -88,9 +88,8 @@ const GetCreature: React.FC<MakhlukProps> = ({ initialData }) => {
   return (
     <div className="m-2 text-sm">
       <div className="flex">
-        
-      <AddCreature/>
-      <SearchCreature setData={setData} />
+        <AddPlant />
+        <SearchPlant setData={setData} />
       </div>
 
       <table className="table-auto w-full">
@@ -109,10 +108,10 @@ const GetCreature: React.FC<MakhlukProps> = ({ initialData }) => {
               Domain
             </th>
             <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
-              Kingdom
+              Phylum
             </th>
             <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
-              Phylum
+              Subphylum
             </th>
             <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
               Class
@@ -121,67 +120,44 @@ const GetCreature: React.FC<MakhlukProps> = ({ initialData }) => {
               Order
             </th>
             <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
-              Infraorder
-            </th>
-            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
-              Family
-            </th>
-            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
-              Genus
-            </th>
-            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
-              Species
-            </th>
-            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
               Action
             </th>
           </tr>
         </thead>
 
         <tbody>
-          {data.map((makhluk) => (
-            <tr key={makhluk.id}>
+          {data.map((plant) => (
+            <tr key={plant.id}>
               <td className="text-center border-solid border-2 border-gray-400">
-                {makhluk.id}
+                {plant.id}
               </td>
               <td className="border-solid border-2 border-gray-400 px-2">
-                {makhluk.name_ID}
+                {plant.name_id}
               </td>
               <td className="border-solid border-2 border-gray-400 px-2">
-                {makhluk.name_EN}
+                {plant.name_en}
               </td>
               <td className="border-solid border-2 border-gray-400 px-2">
-                {makhluk.domain}
+                {plant.domain}
               </td>
               <td className="border-solid border-2 border-gray-400 px-2">
-                {makhluk.kingdom}
+                {plant.phylum}
               </td>
               <td className="border-solid border-2 border-gray-400 px-2">
-                {makhluk.phylum}
+                {plant.subphylum}
               </td>
               <td className="border-solid border-2 border-gray-400 px-2">
-                {makhluk.class}
+                {plant.class}
               </td>
               <td className="border-solid border-2 border-gray-400 px-2">
-                {makhluk.order}
+                {plant.order}
               </td>
-              <td className="border-solid border-2 border-gray-400 px-2">
-                {makhluk.infraorder}
-              </td>
-              <td className="border-solid border-2 border-gray-400 px-2">
-                {makhluk.family}
-              </td>
-              <td className="border-solid border-2 border-gray-400 px-2">
-                {makhluk.genus}
-              </td>
-              <td className="border-solid border-2 border-gray-400 px-2">
-                {makhluk.species}
-              </td>
+
               <td className="text-center border-solid border-2 border-gray-400">
                 <button className="bg-emerald-300 rounded-md px-1.5 m-0.5 inline-flex items-center space-x-1">
                   <Link
                     className="inline-flex items-center space-x-1"
-                    href={`./creature/detail/${makhluk.id}`}
+                    href={`./plant/detail/${plant.id}`}
                   >
                     <Icon icon="icon-park-outline:doc-detail" />{" "}
                     <span>Detail</span>
@@ -190,14 +166,14 @@ const GetCreature: React.FC<MakhlukProps> = ({ initialData }) => {
                 <button className="bg-yellow-500 rounded-md px-3.5 m-0.5 inline-flex items-center space-x-1">
                   <Link
                     className="inline-flex items-center space-x-1"
-                    href={`./creature/edit/${makhluk.id}`}
+                    href={`./plant/edit/${plant.id}`}
                   >
                     <Icon icon="basil:edit-outline" />
                     <span>Edit</span>
                   </Link>
                 </button>
                 <button
-                  onClick={() => openModal(makhluk.id)}
+                  onClick={() => openModal(plant.id)}
                   className="bg-red-600 rounded-md px-1.5 m-0.5 inline-flex items-center space-x-1"
                 >
                   <InlineIcon icon="mdi-light:alert" />
@@ -237,10 +213,10 @@ const GetCreature: React.FC<MakhlukProps> = ({ initialData }) => {
 
 // Create a function to fetch the data on the server side
 export const getServerSideProps: GetServerSideProps = async () => {
-  let initialData: Makhluk[] = [];
+  let initialData: Plant[] = [];
   try {
     // Fetch the data from the API
-    const res = await axios.get("http://localhost:8000/api/makhluks");
+    const res = await axios.get("http://localhost:8000/api/plants");
     initialData = res.data;
   } catch (error) {
     console.error("Error fetching data from API:", error);
@@ -253,4 +229,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-export default GetCreature;
+export default GetPlant;
