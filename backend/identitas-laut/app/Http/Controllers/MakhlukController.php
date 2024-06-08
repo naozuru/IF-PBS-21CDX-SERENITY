@@ -100,8 +100,11 @@ class MakhlukController extends Controller
      */
     public function update(UpdateMakhlukRequest $request, Makhluk $makhluk)
     {
-        // cek nama_ID apakah sudah ada
-        $existingMakhluk = Makhluk::where('name_ID', $request->name_ID)->first();
+        // cek nama_ID apakah sudah ada, tapi bukan dari makhluk yang sedang di-update
+        $existingMakhluk = Makhluk::where('name_ID', $request->name_ID)
+                                ->where('id', '!=', $makhluk->id)
+                                ->first();
+
         if ($existingMakhluk) {
             // name_ID already exists
             // handle the error or return a response indicating the duplication
@@ -109,10 +112,11 @@ class MakhlukController extends Controller
         } else {
             // name_ID does not exist
             // proceed with storing the new resource
-            $updateData = Makhluk::where('id', $makhluk->id)->update($request->all());
-            return $updateData;
+            $makhluk->update($request->all());
+            return response()->json(['message' => 'Makhluk berhasil diperbarui!'], 200);
         }
     }
+
 
     /**
      * Remove the specified resource from storage.
