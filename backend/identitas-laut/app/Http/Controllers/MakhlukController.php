@@ -86,7 +86,7 @@ class MakhlukController extends Controller
         return response()->json($showOneData);
     }
 
-    
+
     /**
      * Show the form for editing the specified resource.
      */

@@ -14,11 +14,18 @@ class PlantController extends Controller
     /**
      * Display a listing of the resource.
      */
+    // public function index()
+    // {
+    //     $showAllPlants = Plant::all();
+
+    //     return $showAllPlants;
+    // }
+
     public function index()
     {
-        $showAllPlants = Plant::all();
+        $plants = Plant::all();
 
-        return $showAllPlants;
+        return view('plants.index', compact('plants'));
     }
 
     /**
