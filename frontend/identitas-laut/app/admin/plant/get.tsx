@@ -87,6 +87,9 @@ const GetPlant: React.FC<PlantProps> = ({ initialData }) => {
 
   return (
     <div className="m-2 text-sm">
+      <div className="flex justify-center font-bold text-xl mb-2">
+        <h1>Admin Plants</h1>
+      </div>
       <div className="flex">
         <AddPlant />
         <SearchPlant setData={setData} />
@@ -95,31 +98,31 @@ const GetPlant: React.FC<PlantProps> = ({ initialData }) => {
       <table className="table-auto w-full">
         <thead>
           <tr>
-            <th className="border-solid border-2 border-gray-500 p-3 bg-emerald-800">
+            <th className="border-solid border-2 border-gray-500 p-3 bg-emerald-800 text-white">
               ID
             </th>
-            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800 text-white">
               Nama ID
             </th>
-            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800 text-white">
               Nama EN
             </th>
-            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800 text-white">
               Domain
             </th>
-            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800 text-white">
               Phylum
             </th>
-            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800 text-white">
               Subphylum
             </th>
-            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800 text-white">
               Class
             </th>
-            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800 text-white">
               Order
             </th>
-            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800 text-white">
               Action
             </th>
           </tr>

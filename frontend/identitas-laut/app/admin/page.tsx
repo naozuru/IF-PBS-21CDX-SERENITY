@@ -2,8 +2,10 @@ import React from "react";
 
 export default function AdminDashboard() {
   return (
-    <div>
-      <h1>Admin Dashboard</h1>
+    <div className="m-2">
+      <div className="flex justify-center font-bold text-xl mb-2">
+        <h1>Admin Dashboard</h1>
+      </div>
 
       <h1>Progres:</h1>
       <div className="inline-grid">

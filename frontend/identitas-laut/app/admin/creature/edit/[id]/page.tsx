@@ -55,10 +55,7 @@ const EditCreature: React.FC<{ params: { id: string } }> = ({ params }) => {
     e.preventDefault();
     try {
       if (creature) {
-        await axios.put(
-          `${process.env.API}/makhluks/${params.id}`,
-          creature
-        );
+        await axios.put(`${process.env.API}/makhluks/${params.id}`, creature);
         alert("Data updated successfully!");
       }
     } catch (error) {
@@ -77,6 +74,10 @@ const EditCreature: React.FC<{ params: { id: string } }> = ({ params }) => {
 
   return (
     <div className="m-2 text-sm">
+      <div className="flex justify-center font-bold text-xl mb-5">
+        <h1>Edit Creature</h1>
+      </div>
+
       <form onSubmit={handleSubmit}>
         <section>
           <section className="flex items-center mb-4">

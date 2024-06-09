@@ -91,6 +91,9 @@ const GetCreature: React.FC<MakhlukProps> = ({ initialData }) => {
 
   return (
     <div className="m-2 text-sm">
+      <div className="flex justify-center font-bold text-xl mb-2">
+        <h1>Admin Creatures</h1>
+      </div>
       <div className="flex">
         
       <AddCreature/>
@@ -100,43 +103,43 @@ const GetCreature: React.FC<MakhlukProps> = ({ initialData }) => {
       <table className="table-auto w-full">
         <thead>
           <tr>
-            <th className="border-solid border-2 border-gray-500 p-3 bg-emerald-800">
+            <th className="border-solid border-2 border-gray-500 p-3 bg-emerald-800 text-white">
               ID
             </th>
-            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800 text-white">
               Nama ID
             </th>
-            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800 text-white">
               Nama EN
             </th>
-            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800 text-white">
               Domain
             </th>
-            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800 text-white">
               Kingdom
             </th>
-            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800 text-white">
               Phylum
             </th>
-            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800 text-white">
               Class
             </th>
-            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800 text-white">
               Order
             </th>
-            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800 text-white">
               Infraorder
             </th>
-            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800 text-white">
               Family
             </th>
-            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800 text-white">
               Genus
             </th>
-            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800 text-white">
               Species
             </th>
-            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800">
+            <th className="border-solid border-2 border-gray-400 p-3 bg-emerald-800 text-white">
               Action
             </th>
           </tr>

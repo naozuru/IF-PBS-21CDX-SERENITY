@@ -6,11 +6,11 @@ export default function Login() {
     <div>
       <div className="flex items-center justify-center min-h-screen">
         <div className="bg-emerald-900 p-8 rounded-lg shadow-lg max-w-sm w-full">
-          <h1 className="text-2xl font-bold text-center mb-8">Login</h1>
+          <h1 className="text-2xl font-bold text-center mb-8 text-white">Login</h1>
 
           <form className="mt-6">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium ">
+              <label htmlFor="email" className="block text-sm font-medium text-white">
                 Email address
               </label>
               <input
@@ -21,7 +21,7 @@ export default function Login() {
               />
             </div>
             <div className="mt-4">
-              <label htmlFor="password" className="block text-sm font-medium ">
+              <label htmlFor="password" className="block text-sm font-medium text-white">
                 Password
               </label>
               <input

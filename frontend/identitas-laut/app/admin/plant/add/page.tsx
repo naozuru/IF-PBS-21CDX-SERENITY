@@ -49,6 +49,9 @@ export default function AddPlant() {
 
   return (
     <div className="m-2">
+      <div className="flex justify-center font-bold text-xl mb-5">
+        <h1>Add Plant</h1>
+      </div>
       <form onSubmit={handleSubmit}>
         <section className="flex items-center mb-4">
           <section className="w-1/4">
