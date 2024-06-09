@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('family')->nullable();
             $table->string('genus')->nullable();
             $table->string('species')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

@@ -49,7 +49,7 @@ const GetPlant: React.FC<PlantProps> = ({ initialData }) => {
   const handleDelete = async () => {
     if (deleteId !== null) {
       try {
-        await axios.delete(`http://localhost:8000/api/plants/${deleteId}`);
+        await axios.delete(`${process.env.API}/plants/${deleteId}`);
         // Filter out the deleted item from the state
         const updatedData = data.filter((makhluk) => makhluk.id !== deleteId);
         setData(updatedData);
@@ -67,7 +67,7 @@ const GetPlant: React.FC<PlantProps> = ({ initialData }) => {
       // Fetch the data
       axios
         // Fetch the data from the API
-        .get("http://localhost:8000/api/plants")
+        .get(`${process.env.API}/plants/`)
         .then((response) => {
           setData(response.data);
           setLoading(false);

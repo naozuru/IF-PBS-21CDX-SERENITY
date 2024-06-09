@@ -53,7 +53,7 @@ const GetCreature: React.FC<MakhlukProps> = ({ initialData }) => {
   const handleDelete = async () => {
     if (deleteId !== null) {
       try {
-        await axios.delete(`http://localhost:8000/api/makhluks/${deleteId}`);
+        await axios.delete(`${process.env.API}/makhluks/${deleteId}`);
         // Filter out the deleted item from the state
         const updatedData = data.filter((makhluk) => makhluk.id !== deleteId);
         setData(updatedData);
@@ -71,7 +71,7 @@ const GetCreature: React.FC<MakhlukProps> = ({ initialData }) => {
       // Fetch the data
       axios
         // Fetch the data from the API
-        .get("http://localhost:8000/api/makhluks")
+        .get(`${process.env.API}/makhluks`)
         .then((response) => {
           setData(response.data);
           setLoading(false);

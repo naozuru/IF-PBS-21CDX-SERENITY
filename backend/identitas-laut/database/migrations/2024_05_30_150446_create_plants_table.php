@@ -20,6 +20,13 @@ return new class extends Migration
             $table->string('subphylum')->nullable();
             $table->string('class')->nullable();
             $table->string('order')->nullable();
+            $table->string('family')->nullable();
+            $table->string('genus')->nullable();
+            $table->string('species')->nullable();
+            $table->string('habitat')->nullable();
+            $table->string('distribusi')->nullable();
+            $table->string('ekologi')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

@@ -40,7 +40,7 @@ const ViewCreature: React.FC<MakhlukProps> = ({ initialData }) => {
       // Fetch the data
       axios
         // Fetch the data from the API
-        .get("http://localhost:8000/api/makhluks")
+        .get(`${process.env.API}/makhluks/`)
         .then((response) => {
           setData(response.data);
           setLoading(false);
