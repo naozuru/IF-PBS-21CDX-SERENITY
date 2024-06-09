@@ -33,7 +33,7 @@ const Header = () => {
           </div>
 
           <div>
-            <Link className="text-md font-semibold flex" href="../login">
+            <Link className="text-md font-semibold flex" href="../../../login">
               <Icon icon="solar:login-bold" width={24} />
               <span>Login</span>
             </Link>
